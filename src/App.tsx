@@ -5,6 +5,7 @@ import * as AppStyle from './App.style';
 import { Item } from './types/Item';
 
 import ListItem from './components/ListItem';
+import AddTask from './components/AddTask';
 
 const App = () => {
   const [list, setList] = useState<Item[]>([]);
@@ -16,12 +17,24 @@ const App = () => {
     ]);
   }, []);
 
+  const handleAddTask = (task: string) => (
+    setList([
+      ...list,
+      {
+        id: list.length + 1,
+        task,
+        done: false,
+      },
+    ])
+  );
+
   return (
     <AppStyle.Container>
       <AppStyle.Area>
         <AppStyle.Header>
           Lista de Tarefas
         </AppStyle.Header>
+        <AddTask onEnter={handleAddTask} />
         {
           list.map((item) => (<ListItem key={item.id} item={item} />))
         }

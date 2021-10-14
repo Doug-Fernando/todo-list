@@ -6,7 +6,7 @@ export const Container = styled.div`
   min-height: 100vh;
 `;
 
-export const Area = styled.div`
+export const Area = styled.section`
   margin: auto;
   max-width: 980px;
   padding: 10px;
