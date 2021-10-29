@@ -18,3 +18,10 @@ export const Header = styled.h1`
   border-bottom: 1px solid #444;
   padding-bottom: 20px;
 `;
+
+export const Info = styled.p`
+  font-size: 16px;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 10px;
+`;

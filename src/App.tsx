@@ -43,6 +43,7 @@ const App = () => {
           Lista de Tarefas
         </AppStyle.Header>
         <AddTask onEnter={handleAddTask} />
+        <AppStyle.Info> Aperte ENTER para adicionar a tarefa</AppStyle.Info>
         {
           list.map((item) => (<ListItem key={item.id} item={item} handleDone={handleDone} />))
         }

@@ -6,7 +6,7 @@ export default styled.div`
   border: 1px solid #555;
   border-radius: 15px;
   padding: 15px;
-  margin: 20px 0;
+  margin: 10px 0;
 
   div {
     width: 21px;
