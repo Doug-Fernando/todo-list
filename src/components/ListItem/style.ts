@@ -4,13 +4,12 @@ type ContainerProps = {
   done: boolean
 };
 
-export default styled.div(({ done }: ContainerProps) => (`
+export const Container = styled.div(({ done }: ContainerProps) => (`
   display: flex;
   background-color: #20212C;
   padding: 10px;
   border-radius: 10px;
   margin-bottom: 10px;
-  align-items: center;
 
   label {
     color: #CCC;
@@ -28,3 +27,20 @@ export default styled.div(({ done }: ContainerProps) => (`
   }
   `
 ));
+
+export const DeleteButton = styled.button`
+  background: none;
+  outline: none;
+  border: none;
+  margin-left: auto
+`;
+
+export const DeleteTask = styled.img`
+  width: 20px;
+  height: 20px;
+
+  &:hover {
+    transform: scale(1.2);
+    transition: linear 100ms;
+  }
+`;

@@ -36,6 +36,11 @@ const App = () => {
     }));
   };
 
+  const deleteTask = (id: number): void => {
+    const newList = list.filter((item) => item.id !== id);
+    setList(newList);
+  };
+
   return (
     <AppStyle.Container>
       <AppStyle.Area>
@@ -43,9 +48,16 @@ const App = () => {
           Lista de Tarefas
         </AppStyle.Header>
         <AddTask onEnter={handleAddTask} />
-        <AppStyle.Info> Aperte ENTER para adicionar a tarefa</AppStyle.Info>
+        <AppStyle.Info>Aperte ENTER para adicionar a tarefa</AppStyle.Info>
         {
-          list.map((item) => (<ListItem key={item.id} item={item} handleDone={handleDone} />))
+          list.map((item) => (
+            <ListItem
+              key={item.id}
+              item={item}
+              handleDone={handleDone}
+              deleteTask={deleteTask}
+            />
+          ))
         }
       </AppStyle.Area>
     </AppStyle.Container>
