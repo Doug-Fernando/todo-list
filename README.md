@@ -17,9 +17,9 @@ Navegue até a pasta onde clonou o repositório
   1. Crie a imagem: `docker build -t todo-list .`
   - *-t todo-list* - Nome da imagem(opcional)
 
-  1. Rode o container: `docker run -p 3000:3000 todo-list`
+  2. Rode o container: `docker run -p 3000:3000 todo-list`
 
-  2. Acesse `localhost:3000` e teste a aplicação :)
+  3. Acesse `localhost:3000` e teste a aplicação :)
 
 - ### Com Node
   1. Instale as dependências: usando **NPM**: `npm install` ou **YARN**: `yarn`
