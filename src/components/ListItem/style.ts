@@ -21,5 +21,10 @@ export default styled.div(({ done }: ContainerProps) => (`
     width: 15px;
     height: 15px;
     margin-right: 7px;
-  }`
+  }
+
+  &:hover {
+    background: #20214D
+  }
+  `
 ));
