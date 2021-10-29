@@ -11,11 +11,13 @@ const App = () => {
   const [list, setList] = useState<Item[]>([]);
 
   useEffect(() => {
-    setList([
-      { id: 1, task: 'Comprar algo', done: false },
-      { id: 2, task: 'Bolar um plano', done: true },
-    ]);
+    const myList: string = localStorage.getItem('my-list') || '[]';
+    setList(JSON.parse(myList));
   }, []);
+
+  useEffect(() => {
+    localStorage.setItem('my-list', JSON.stringify(list));
+  }, [list]);
 
   const handleAddTask = (task: string) => (
     setList([
@@ -25,8 +27,14 @@ const App = () => {
         task,
         done: false,
       },
-    ])
-  );
+    ]));
+
+  const handleDone = (id: number): void => {
+    setList(list.map((item) => {
+      if (item.id === id) item.done = !item.done;
+      return item;
+    }));
+  };
 
   return (
     <AppStyle.Container>
@@ -36,7 +44,7 @@ const App = () => {
         </AppStyle.Header>
         <AddTask onEnter={handleAddTask} />
         {
-          list.map((item) => (<ListItem key={item.id} item={item} />))
+          list.map((item) => (<ListItem key={item.id} item={item} handleDone={handleDone} />))
         }
       </AppStyle.Area>
     </AppStyle.Container>
